@@ -1,0 +1,272 @@
+{% load static %}
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Me</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+        }
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 10px;
+            border: 5px solid #667eea;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline-item {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #667eea;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 30px 0;
+            border-top: 1px solid #dee2e6;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{% url 'datadiri_home' %}">
+                <i class="bi bi-person-circle"></i> My Profile
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'datadiri_home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'about_me' %}">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'gallery' %}">Galeri</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="py-5">
+            <div class="container">
+                <!-- Header -->
+                <div class="row mb-5">
+                    <div class="col-lg-4 text-center">
+                        <img src="{% static 'images/profil diri.jpeg' %}" alt="Foto Profil" class="profile-img">
+                    </div>
+                    <div class="col-lg-8">
+                        <h1 class="mb-3">Tentang Saya</h1>
+                        <p class="lead text-muted">Deni Maulana</p>
+                        <p>Saya Deni Maulana, seorang mahasiswa Sekolah Tinggi Teknologi Terpadu Nurul Fikri (STT-NF) pada Program Studi Teknik Informatika. Saya memiliki minat besar dalam dunia teknologi informasi, khususnya pada pengembangan perangkat lunak, pemrograman, dan pengelolaan sistem berbasis komputer.
+
+Sebagai mahasiswa Teknik Informatika, saya terbiasa mempelajari dan mengembangkan solusi teknologi melalui berbagai proyek akademik yang melibatkan analisis masalah, perancangan sistem, serta implementasi menggunakan berbagai bahasa pemrograman dan tools pendukung. Saya juga memiliki semangat belajar yang tinggi, mampu bekerja secara mandiri maupun dalam tim, serta terbuka terhadap perkembangan teknologi terbaru.</p>
+                        <p>Dengan latar belakang pendidikan dan minat di bidang teknologi, saya berkomitmen untuk terus mengembangkan kemampuan teknis maupun soft skill agar dapat berkontribusi secara positif di dunia industri dan masyarakat melalui inovasi berbasis teknologi informasi.</p>
+                    </div>
+                </div>
+
+                <hr class="my-5">
+
+                <!-- Data Pribadi -->
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <h3 class="mb-4">Data Pribadi</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <p><strong>Nama Lengkap:</strong> Deni Maulana</p>
+                                <p><strong>Tempat Lahir:</strong> Bandung</p>
+                                <p><strong>Tanggal Lahir:</strong> 11 April 2006</p>
+                                <p><strong>Jenis Kelamin:</strong> Laki-laki</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <p><strong>Agama:</strong> Islam</p>
+                                <p><strong>Kewarganegaraan:</strong> Indonesia</p>
+                                <p><strong>Status:</strong> Mahasiswa</p>
+                                <p><strong>Alamat:</strong> Jalan tugu resident no140</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-5">
+
+                <!-- Pendidikan -->
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <h3 class="mb-4">Riwayat Pendidikan</h3>
+                    </div>
+                    <div class="col-12">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5>MI Saadatuddarain</h5>
+                                <p class="text-muted">2012-2018</p>
+                                <p>Pendidikan dasar di MI Saadatuddarain dengan prestasi yang memuaskan.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h5>SMPI Nurul Fikri Peduli</h5>
+                                <p class="text-muted">2019 - 2022</p>
+                                <p>Pendidikan menengah pertama dengan fokus pada akademik dan ekstrakurikuler.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h5>SMK Harapan Bangsa</h5>
+                                <p class="text-muted">2021 - 2025</p>
+                                <p>Pendidikan menengah atas dengan program teknik komputer dan jaringan serta basic coding.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h5>STT-Terpadu Nurul Fikri - S1 Teknik Informatika</h5>
+                                <p class="text-muted">2025 - Sekarang</p>
+                                <p>Program studi S1 Teknik Informatika dengan fokus pada web development dan software engineering.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-5">
+
+                <!-- Keahlian -->
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <h3 class="mb-4">Keahlian</h3>
+                    </div>
+                    
+                    <!-- Frontend -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">Frontend</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled">
+                                    <li class="mb-3">
+                                        <p class="mb-1"><strong>HTML & CSS</strong></p>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" style="width: 90%"></div>
+                                        </div>
+                                    </li>
+                                    <li class="mb-3">
+                                        <p class="mb-1"><strong>JavaScript</strong></p>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" style="width: 75%"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p class="mb-1"><strong>Bootstrap</strong></p>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" style="width: 85%"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0">Backend Development</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled">
+                                    <li class="mb-3">
+                                        <p class="mb-1"><strong>Python</strong></p>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" style="width: 80%"></div>
+                                        </div>
+                                    </li>
+                                    <li class="mb-3">
+                                        <p class="mb-1"><strong>Django</strong></p>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" style="width: 85%"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p class="mb-1"><strong>Database (SQL)</strong></p>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" style="width: 70%"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-5">
+
+                <!-- Informasi Kontak -->
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="mb-4">Hubungi Saya</h3>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-header bg-warning text-dark">
+                                <h5 class="mb-0">Informasi Kontak</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Email:</strong> <a href="mailto:denimaulana1371@gmail.com">denimaulana1371@gmail.com</a></p>
+                                <p><strong>Telepon:</strong> <a href="tel:+6285819355196">+62 858 1935 5196</a></p>
+                                <p><strong>WhatsApp:</strong> <a href="https://wa.me/6285819355196">+62 858 1935 5196</a></p>
+                                <p><strong>Lokasi:</strong> Depok, Jawa Barat</p>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Data Diri Website</h5>
+                    <p>Website pribadi untuk menampilkan portofolio dan informasi diri.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2026 Deni Maulana. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

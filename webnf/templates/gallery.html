@@ -1,0 +1,195 @@
+{% load static %}
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Galeri</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            height: 250px;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-text {
+            color: white;
+            text-align: center;
+        }
+        .category-btn {
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 30px 0;
+            border-top: 1px solid #dee2e6;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{% url 'datadiri_home' %}">
+                <i class="bi bi-person-circle"></i> My Profile
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'datadiri_home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about_me' %}">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'gallery' %}">Galeri</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="py-5">
+            <div class="container">
+                <!-- Header -->
+                <div class="mb-5">
+                    <h1 class="mb-3">Galeri Saya</h1>
+                    <p class="lead text-muted">Koleksi foto,dan momen-momen penting saya</p>
+                </div>
+
+                <!-- Filter/Category -->
+                <div class="mb-4">
+                    <button class="btn btn-primary category-btn" data-category="all">Semua</button>
+                    <button class="btn btn-outline-primary category-btn" data-category="organisasi">Organisasi</button>
+                    <button class="btn btn-outline-primary category-btn" data-category="event">Event</button>
+                    <button class="btn btn-outline-primary category-btn" data-category="healing">Healing Diri</button>
+                </div>
+
+                <!-- Gallery Grid (3 items only) -->
+                <div class="row g-4">
+                    <div class="col-md-4 gallery-item" data-category="organisasi">
+                        <img src="{% static 'images/onne comunity.jpeg' %}" alt="Onne Community">
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">
+                                <h5>Organisasi</h5>
+                                <p class="small">Onne Community</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 gallery-item" data-category="event">
+                        <img src="{% static 'images/seminar kholid.jpeg' %}" alt="Seminar Kholid">
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">
+                                <h5>Event</h5>
+                                <p class="small">Seminar Kholid</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 gallery-item" data-category="healing">
+                        <img src="{% static 'images/puncak gn halimun.jpeg' %}" alt="Puncak Gn Halimun">
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">
+                                <h5>Healing Diri</h5>
+                                <p class="small">Puncak Gn Halimun</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="mt-5">
+                    <div class="alert alert-info">
+                        <h5 class="alert-heading">📸 Tentang Galeri Ini</h5>
+                        <p>Galeri ini menampilkan berbagai project yang telah saya kerjakan, event yang saya ikuti, dan desain-desain menarik. Setiap item merepresentasikan pembelajaran dan pengalaman dalam journey saya sebagai developer.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Data Diri Website</h5>
+                    <p>Website pribadi untuk menampilkan portofolio dan informasi diri.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2026 Denimaulana. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script>
+        // Simple gallery filter
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                
+                // Update active button
+                document.querySelectorAll('.category-btn').forEach(b => {
+                    b.classList.remove('btn-primary');
+                    b.classList.add('btn-outline-primary');
+                });
+                this.classList.add('btn-primary');
+                this.classList.remove('btn-outline-primary');
+                
+                // Filter gallery items
+                document.querySelectorAll('[data-category]').forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
