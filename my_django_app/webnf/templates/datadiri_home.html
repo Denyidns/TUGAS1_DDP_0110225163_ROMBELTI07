@@ -1,0 +1,190 @@
+{% load static %}
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Diri - Beranda</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 30px 0;
+            border-top: 1px solid #dee2e6;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{% url 'datadiri_home' %}">
+                <i class="bi bi-person-circle"></i> My Profile
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'datadiri_home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about_me' %}">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'gallery' %}">Galeri</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <img src="{% static 'images/profil diri.jpeg' %}" alt="Foto Profil" class="profile-img">
+                <h1 class="mb-3">Selamat Datang</h1>
+                <p class="lead">Deni Maulana</p>
+                <p class="text-white-50">Web Developer | Designer | Student</p>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <!-- Tentang Singkat -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">Tentang Saya</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Saya Deni Maulana, seorang mahasiswa Sekolah Tinggi Teknologi Terpadu Nurul Fikri (STT-NF) pada Program Studi Teknik Informatika. Saya memiliki minat besar dalam dunia teknologi informasi, khususnya pada pengembangan perangkat lunak, pemrograman, dan pengelolaan sistem berbasis komputer.
+                                <p>Saya senang belajar teknologi terbaru dan menciptakan project yang bermanfaat. Selain itu, saya juga aktif dalam berbagai kegiatan organisasi kampus yang berhubungan dengan teknologi informasi.</p>
+                                <a href="{% url 'about_me' %}" class="btn btn-primary">Pelajari Lebih Lanjut</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Informasi Kontak -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0">Informasi Kontak</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Email:</strong> denimaulana1371@gmail.com</p>
+                                <p><strong>Telepon:</strong> +62 858 1935 5196</p>
+                                <p><strong>Lokasi:</strong> Depok, Jawa Barat</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Preview -->
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <h3 class="mb-4">Keahlian Utama</h3>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">HTML & CSS</h6>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width: 90%"></div>
+                                </div>
+                                <small class="text-muted">90% Mahir</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">JavaScript</h6>
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" style="width: 75%"></div>
+                                </div>
+                                <small class="text-muted">75% Mahir</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">Python</h6>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" style="width: 80%"></div>
+                                </div>
+                                <small class="text-muted">80% Mahir</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">Django</h6>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" style="width: 85%"></div>
+                                </div>
+                                <small class="text-muted">85% Mahir</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Data Diri Website</h5>
+                    <p>Website pribadi untuk menampilkan portofolio dan informasi diri.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2026 Deni Maulana. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

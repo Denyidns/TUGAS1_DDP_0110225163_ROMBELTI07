@@ -1,0 +1,40 @@
+"""
+URL configuration for my_django_app project.
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/6.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from webnf.views import *
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', home, name='index'),
+    path('index/', index_page, name='index_page'),
+    path('main/', main_page, name='main_page'),
+    path('home/', home, name='home'), 
+    path('about/', about, name='about'), 
+    path('contact/', contact, name='contact'),
+    path('login/', login, name='login'),
+    path('bootstrap/', bootstrap_template, name='bootstrap'),
+    path('bootsraptemplate/', bootsraptemplate_index, name='bootsraptemplate'),
+    path('data-diri/', data_diri, name='data_diri'),
+    
+    # Data Diri Website Routes
+    path('datadiri/', datadiri_home, name='datadiri_home'),
+    path('datadiri/home/', datadiri_home, name='datadiri_home'),
+    path('datadiri/about/', about_me, name='about_me'),
+    path('datadiri/gallery/', gallery, name='gallery'),
+]
+
